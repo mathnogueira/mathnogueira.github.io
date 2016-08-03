@@ -1,0 +1,23 @@
+{
+  "name": "grupo1",
+  "description": "Curso no sabado sem depressão",
+  "main": "",
+  "authors": [
+    "Matheus Nogueira <matheus.nogueira2008@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "jquery.stellar": "^0.6.2"
+  }
+}

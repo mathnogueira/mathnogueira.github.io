@@ -1,0 +1,55 @@
+header
+    background: linear-gradient(transparentize($header_bg, 0.15), transparentize($header_bg, 0.15)), url("../../../images/bg.jpeg")
+
+    #description
+        @include center
+        width: 700px
+
+        h1
+            font-weight: bold
+            color: $title_color
+            font-size: 5em
+            text-align: center
+
+        h3
+            color: $title_color
+            font-family: $font_title
+            font-size: 3em
+            text-align: center
+            margin-top: 20px
+
+        #contact_links
+            // position: absolute
+            // bottom: 100px
+            margin-top: 6%
+            width: 100%
+            text-align: center
+            margin-bottom: 40px
+
+            ul
+                list-style: none
+                margin: 0
+                padding: 0
+
+                li
+                    display: inline
+
+                    a
+                        margin: 0 15px
+                        font-size: 40px
+                        color: $title_color
+
+                        &:hover
+                            color: $title_highlight
+
+    #hire_me
+        width: 100%
+        position: absolute
+        bottom: 10%
+
+        a
+            @include center
+
+#myself
+
+    background: $bg_myself

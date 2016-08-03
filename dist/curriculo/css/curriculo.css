@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css?family=Merriweather");
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+.button {
+  background: transparent;
+  color: #f0f0f0;
+  font-family: "Source Sans Pro";
+  font-size: 1.8em;
+  border: solid 2px #f0f0f0;
+  border-radius: 0;
+  padding: 4px 20px;
+  text-transform: uppercase; }
+  .button:hover {
+    border-color: #f34213;
+    color: #f0f0f0; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Ubuntu";
+  padding: 0;
+  margin: 0;
+  font-size: 3em; }
+  h1 > .highlight, h2 > .highlight, h3 > .highlight, h4 > .highlight, h5 > .highlight, h6 > .highlight {
+    color: #f34213; }
+  h1.uppercase, h2.uppercase, h3.uppercase, h4.uppercase, h5.uppercase, h6.uppercase {
+    text-transform: uppercase; }
+
+html, body {
+  height: 100%; }
+
+.full-cover {
+  height: 100%;
+  background-size: cover; }
+  .full-cover.padding {
+    padding: 30px 20px 30px 20px; }
+
+header {
+  background: linear-gradient(rgba(39, 45, 45, 0.85), rgba(39, 45, 45, 0.85)), url("../../../images/bg.jpeg"); }
+  header #description {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px; }
+    header #description h1 {
+      font-weight: bold;
+      color: #e8eef2;
+      font-size: 5em;
+      text-align: center; }
+    header #description h3 {
+      color: #e8eef2;
+      font-family: "Ubuntu";
+      font-size: 3em;
+      text-align: center;
+      margin-top: 20px; }
+    header #description #contact_links {
+      margin-top: 6%;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 40px; }
+      header #description #contact_links ul {
+        list-style: none;
+        margin: 0;
+        padding: 0; }
+        header #description #contact_links ul li {
+          display: inline; }
+          header #description #contact_links ul li a {
+            margin: 0 15px;
+            font-size: 40px;
+            color: #e8eef2; }
+            header #description #contact_links ul li a:hover {
+              color: #f34213; }
+  header #hire_me {
+    width: 100%;
+    position: absolute;
+    bottom: 10%; }
+    header #hire_me a {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
+
+#myself {
+  background: #d8e2dc; }
+
+/*# sourceMappingURL=curriculo.css.map */

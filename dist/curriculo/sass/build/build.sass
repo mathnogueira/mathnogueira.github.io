@@ -1,0 +1,164 @@
+// Arquivo de cores do meu currículo
+
+// Paleta de cores: https://coolors.co/0a1128-f34213-e8eef2-3e6259-474448
+// https://coolors.co/223843-ffc857-e8eef2-3e6259-474448
+//
+$pallete1:        #272d2d
+$pallete2:        #f34213
+$pallete3:        #f0f0f0
+$pallete4:        #ff6700
+$pallete5:        #d8e2dc
+
+$header_bg:            $pallete1
+$title_color:          #e8eef2
+$title_highlight:      $pallete2
+
+$button_border_color:  $pallete3
+$button_border_hover:  $pallete2
+
+$bg_myself:            $pallete5
+
+// Arquivo de definição de cores
+
+// Fonte padrão do sistema
+$font_primary:        "Merriweather"
+
+$font_button:         "Source Sans Pro"
+// Fonte para os títulos
+$font_title:          "Ubuntu"
+
+// Function to replace a character of a string
+// @param string string to be changed
+// @param search character that will be replaced
+// @param replace new character
+@function str-replace($string, $search, $replace: '')
+    $index: str-index($string, $search)
+    @if $index
+        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace)
+    @return $string
+
+
+// Function to add a font to the application
+// @param font name of the font
+@mixin include-font($font)
+    $f: str-replace(unquote($font), ' ', '+')
+    @import url('https://fonts.googleapis.com/css?family=' + $f)
+
+
+@include include-font($font_primary)
+@include include-font($font_title)
+@include include-font($font_button)
+
+.button
+    background: transparent
+    color: $pallete3
+    font-family: $font_button
+    font-size: 1.8em
+    border: solid 2px $button_border_color
+    border-radius: 0
+    padding: 4px 20px
+    text-transform: uppercase
+
+    &:hover
+        border-color: $button_border_hover
+        color: $pallete3
+
+// This mixin was extracted from: https://www.sitepoint.com/centering-with-sass/
+@mixin center($width: null, $height: null)
+    position: absolute
+    top: 50%
+    left: 50%
+
+    @if not $width and not $height
+        transform: translate(-50%, -50%)
+    @else if $width and $height
+        width: $width
+        height: $height
+        margin: -($width / 2) #{0 0} -($height / 2)
+    @else if not $height
+        width: $width
+        margin-left: -($width / 2)
+        transform: translateY(-50%)
+    @else
+        height: $height
+        margin-top: -($height / 2)
+        transform: translateX(-50%)
+
+h1, h2, h3, h4, h5, h6
+
+    font-family: $font_title
+    padding: 0
+    margin: 0
+    font-size: 3em
+
+    > .highlight
+        color: $title_highlight
+
+    &.uppercase
+        text-transform: uppercase
+
+html, body
+    height: 100%
+
+.full-cover
+    height: 100%
+    background-size: cover
+
+    &.padding
+        padding: 30px 20px 30px 20px
+
+header
+    background: linear-gradient(transparentize($header_bg, 0.15), transparentize($header_bg, 0.15)), url("../../../images/bg.jpeg")
+
+    #description
+        @include center
+        width: 700px
+
+        h1
+            font-weight: bold
+            color: $title_color
+            font-size: 5em
+            text-align: center
+
+        h3
+            color: $title_color
+            font-family: $font_title
+            font-size: 3em
+            text-align: center
+            margin-top: 20px
+
+        #contact_links
+            // position: absolute
+            // bottom: 100px
+            margin-top: 6%
+            width: 100%
+            text-align: center
+            margin-bottom: 40px
+
+            ul
+                list-style: none
+                margin: 0
+                padding: 0
+
+                li
+                    display: inline
+
+                    a
+                        margin: 0 15px
+                        font-size: 40px
+                        color: $title_color
+
+                        &:hover
+                            color: $title_highlight
+
+    #hire_me
+        width: 100%
+        position: absolute
+        bottom: 10%
+
+        a
+            @include center
+
+#myself
+
+    background: $bg_myself

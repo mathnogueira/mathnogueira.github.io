@@ -1,0 +1,30 @@
+// Arquivo de definição de cores
+
+// Fonte padrão do sistema
+$font_primary:        "Merriweather"
+
+$font_button:         "Source Sans Pro"
+// Fonte para os títulos
+$font_title:          "Ubuntu"
+
+// Function to replace a character of a string
+// @param string string to be changed
+// @param search character that will be replaced
+// @param replace new character
+@function str-replace($string, $search, $replace: '')
+    $index: str-index($string, $search)
+    @if $index
+        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace)
+    @return $string
+
+
+// Function to add a font to the application
+// @param font name of the font
+@mixin include-font($font)
+    $f: str-replace(unquote($font), ' ', '+')
+    @import url('https://fonts.googleapis.com/css?family=' + $f)
+
+
+@include include-font($font_primary)
+@include include-font($font_title)
+@include include-font($font_button)

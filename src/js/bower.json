@@ -1,0 +1,20 @@
+{
+  "name": "grupo1",
+  "authors": [
+    "Matheus Nogueira <matheus.nogueira2008@gmail.com>"
+  ],
+  "description": "asdasdsa",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "^1.5.8"
+  }
+}
