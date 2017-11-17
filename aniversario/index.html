@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<title>Calculadora de aniversário</title>
+		<meta charset="utf-8" />
+		<script>
+			function onRangeChange(target) {
+				var rangeNumber = target.value;
+				var dataNascimento = createDateFromInteger(rangeNumber);
+				console.log(dataNascimento);
+				
+				document.getElementById('data_nascimento').innerHTML = dataNascimento;
+			}
+			
+			function createDateFromInteger(integer) {
+                                var numberAsString = "" + integer;
+                                var ano = integer.substring(0, 4);
+                                var mes = pad(integer.substring(4, 6) % 12 + 1);
+                                var dia = pad(integer.substring(6, 8) % 31 + 1);
+                                
+                                return dia + "/" + mes + "/" + ano;
+			}
+			
+			function pad(number) {
+			        return (number < 10) ? "0" + number : number;
+			}
+			
+			function verificarAniversario() {
+			        var datepicker = document.getElementById('datepicker');
+			        var dataNascimento = createDateFromInteger(datepicker.value);
+			        var dataAtual = new Date();
+                                var diaAtual = dataAtual.getDate();
+                                var mesAtual = dataAtual.getMonth() + 1;
+                                
+                                var diaMesNascimento = dataNascimento.substring(0, 5);
+                                var dataHoje = diaAtual + '/' + mesAtual;
+                                
+                                if (diaMesNascimento === dataHoje) {
+                                        alert('Hoje é seu aniversário, Parabéns');
+                                } else {
+                                        alert('Hoje não é seu aniversário =/ O que você ta fazendo aqui mesmo?');
+                                }
+			}
+		</script>
+		<style>
+		        .datepicker {
+		                width: 100%;
+		                padding: 0;
+		                margin: 0;
+		        }
+		</style>
+	</head>
+	<body>
+	        <header>
+	               <h1>Calculadora de aniversário</h1>
+	        </header>
+	        <div>
+	                <p>Selecione a sua data de nascimento para descobrir se hoje é seu aniversário!</p>
+	        </div>
+	        <div>
+        		<input id="datepicker" class="datepicker" type="range" min="19880000" max="20171231" oninput="onRangeChange(this)" />
+        		<br/>
+        		<div>Data de nascimento: </span><div id="data_nascimento">01/01/1970</div>
+        	</div>
+        	<div>
+        	        <br/><br/>
+        	        <button onclick="verificarAniversario()">Hoje é meu aniversário?</button>
+        	</div>
+	</body>
+</html>
